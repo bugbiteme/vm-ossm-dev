@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: dotnet-iis-app
+  namespace: demo-vm-ossm
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  selector:
+    vm.kubevirt.io/name: dotnet-iis-app-vm
