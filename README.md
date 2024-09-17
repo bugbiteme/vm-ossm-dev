@@ -5,6 +5,7 @@ developement of non-template resources to be integrated with RHDH at a later tim
 1. Service Mesh has been installed and control plane has been deployed
 2. RHDH pipelines have been run to create the VM template with the backend app
 3. Ingress gateway has been set up `demo-gateway`
+4. web-puller is cofigured with `demo-vm-ossm` namespace (as in this file)
 
 ## Steps
 ### Create Namespace
@@ -18,3 +19,6 @@ developement of non-template resources to be integrated with RHDH at a later tim
 
 ### Deploy Front End (may switch this with VM when done)
 `oc create -f k8/container/`
+
+### Test gateway is working
+`sh ./test-gateway.sh`
