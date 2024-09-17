@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: dotnet-iis-app
+  namespace: demo-vm-ossm
+spec:
+  hosts:
+    - dotnet-iis-app.demo-vm-ossm.svc.cluster.local
+  http:
+  - route:
+    - destination:
+        host: dotnet-iis-app.demo-vm-ossm.svc.cluster.local
+        subset: VM1 
+      weight: 100

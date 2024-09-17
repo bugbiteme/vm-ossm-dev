@@ -5,6 +5,11 @@ metadata:
   namespace: demo-vm-ossm
   labels:
     app: dotnet-iis-app-vm
+    version: VM1
+    app.kubernetes.io/component: dotnet-iis-app-vm
+    app.kubernetes.io/instance: dotnet-iis-app-vm
+    app.kubernetes.io/name: dotnet-iis-app-vm
+    app.kubernetes.io/part-of: app
     vm.kubevirt.io/template: windows2k22-server-medium
     vm.kubevirt.io/template.namespace: openshift
     vm.kubevirt.io/template.revision: '1'
@@ -32,10 +37,16 @@ spec:
         vm.kubevirt.io/flavor: medium
         vm.kubevirt.io/os: windows2k22
         vm.kubevirt.io/workload: server
+        sidecar.istio.io/inject: "true"
+        #traffic.sidecar.istio.io/excludeInboundPorts: "80"
+        #traffic.sidecar.istio.io/excludeOutboundPorts: "80"
       creationTimestamp: null
       labels:
         kubevirt.io/domain: dotnet-iis-app-vm
         kubevirt.io/size: medium
+        app: dotnet-iis-app-vm
+        deployment: dotnet-iis-app-vm
+        version: VM1
     spec:
       architecture: amd64
       domain:

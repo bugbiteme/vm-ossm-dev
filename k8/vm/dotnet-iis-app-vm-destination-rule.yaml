@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: dotnet-iis-app
+  namespace: demo-vm-ossm
+spec:
+  host: dotnet-iis-app
+  trafficPolicy:
+    loadBalancer:
+      simple: RANDOM
+  subsets:
+  - name: VM1
+    labels:
+      version: VM1
