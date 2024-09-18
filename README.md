@@ -17,15 +17,14 @@ developement of non-template resources to be integrated with RHDH at a later tim
 **Note:** Once you do this, a `route` will no longer work, and a 
 `virtualservice` + `gateway` will be required
 
-### Deploy Front End (may switch this with VM when done)
+### Deploy Front End 
 `oc create -f k8/container/`
 
 ### Test gateway is working
 `sh ./test-gateway.sh`
 
 ### Deploy Back End VM
-- Make sure the config map has been created   
-`oc apply -f k8/vm/dotnet-iis-app-vm-cm.yaml`  
 
-- Deploy VM components
+`oc create -f k8/vm/`
+
 

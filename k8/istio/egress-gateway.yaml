@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: istio-egressgateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: egressgateway  # Use the Istio egress gateway
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    hosts:
+    - github.com
+    - api.github.com
+    - raw.githubusercontent.com
+    tls:
+      mode: PASSTHROUGH  # This allows the traffic to pass through without decrypting it

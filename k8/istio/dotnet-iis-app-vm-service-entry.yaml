@@ -1,0 +1,17 @@
+# Needed in order to allow IIS app install fom github
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: github-egress
+  namespace: demo-vm-ossm
+spec:
+  hosts:
+  - github.com
+  - api.github.com
+  - raw.githubusercontent.com  # If you are downloading files from raw URLs
+  ports:
+  - number: 443
+    name: https
+    protocol: HTTPS
+  resolution: DNS
+  location: MESH_EXTERNAL
