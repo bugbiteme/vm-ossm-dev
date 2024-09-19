@@ -38,11 +38,9 @@ spec:
         vm.kubevirt.io/os: windows2k22
         vm.kubevirt.io/workload: server
         sidecar.istio.io/inject: "true"
-        proxy.istio.io/config: |
+        proxy.istio.io/config: | # needed in order to bypass proxy for DNS (needed for outside access to gihub .zip file)
           proxyMetadata:
             ISTIO_META_DNS_CAPTURE: "false"  # Disable DNS capture
-        traffic.sidecar.istio.io/excludeInboundPorts: "53"   # Exclude port 53 inbound (DNS)
-        traffic.sidecar.istio.io/excludeOutboundPorts: "53"  # Exclude port 53 outbound (DNS)
       creationTimestamp: null
       labels:
         kubevirt.io/domain: dotnet-iis-app-vm

@@ -5,7 +5,7 @@ metadata:
     app: dotnet-iis-app
     app.kubernetes.io/component: dotnet-iis-app
     app.kubernetes.io/instance: dotnet-iis-app
-    app.kubernetes.io/name: vdotnet-iis-app
+    app.kubernetes.io/name: dotnet-iis-app
     app.kubernetes.io/part-of: app
   name: dotnet-iis-app
   namespace: demo-vm-ossm
